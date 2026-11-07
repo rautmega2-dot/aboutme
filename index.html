@@ -3,65 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eren – Web &amp; Telegram Bot Developer | Eren Labs</title>
-<meta name="description" content="Eren Labs is the portfolio of Eren, a web developer and Telegram bot developer. Browse projects and contact Eren on Telegram.">
+<title>Eren Empire – Web &amp; Telegram Bot Developer</title>
+<meta name="description" content="Eren Empire is the portfolio of Eren, a web developer and Telegram bot developer. Browse projects and contact Eren on Telegram.">
 <link rel="canonical" href="https://erenlabs.xyz/">
-<meta property="og:title" content="Eren – Web &amp; Telegram Bot Developer | Eren Labs">
+<meta property="og:title" content="Eren Empire – Web &amp; Telegram Bot Developer">
+<meta property="og:description" content="Websites, Telegram bots and APIs by Eren.">
+<meta property="og:image" content="https://erenlabs.xyz/logo.jpg">
 <meta property="og:url" content="https://erenlabs.xyz/">
-<meta name="theme-color" content="#FFE14D">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+<meta name="theme-color" content="#05070f">
+<link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Eren","alternateName":"Eren Empire","url":"https://erenlabs.xyz/","jobTitle":"Web Developer and Telegram Bot Developer","sameAs":["https://t.me/erenygr58","https://t.me/erenempire"]}
+</script>
 <style>
-:root{--y:#FFE14D;--p:#FF5CA8;--b:#5B8CFF;--g:#3DDC97;--ink:#000;color-scheme:light}
+:root{--bg:#05070f;--blue:#3da0ff;--cy:#5ee7ff;--tx:#e8f0ff;--mute:#9db0d3;--live:#35f08a;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--ink);font:500 18px/1.5 "Space Grotesk",system-ui,sans-serif;
-  background:var(--y) radial-gradient(rgba(0,0,0,.18) 1.5px,transparent 1.5px) 0 0/22px 22px}
-.wrap{max-width:620px;margin:0 auto;padding:48px 20px 40px}
-.badge{display:inline-block;background:var(--ink);color:var(--y);font-weight:700;padding:6px 14px;border:3px solid var(--ink);transform:rotate(-3deg);margin-bottom:18px}
-h1{font:400 clamp(64px,20vw,128px)/.88 "Archivo Black",sans-serif;margin:0 0 20px;letter-spacing:-.02em;text-shadow:5px 5px 0 var(--p)}
-.about{background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:16px 18px;margin:0 0 36px}
-.about b{display:block;font:400 22px/1.2 "Archivo Black",sans-serif;margin-bottom:6px}
+body{margin:0;min-height:100vh;color:var(--tx);font:500 17px/1.55 "Space Grotesk",system-ui,sans-serif;background:var(--bg);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(600px 400px at 15% 8%,rgba(40,110,255,.35),transparent 70%),
+  radial-gradient(500px 380px at 90% 35%,rgba(94,231,255,.18),transparent 70%),
+  radial-gradient(600px 450px at 20% 95%,rgba(120,70,255,.25),transparent 70%)}
+.wrap{max-width:640px;margin:0 auto;padding:44px 18px 40px}
+.top{text-align:center}
+.logo{width:150px;height:150px;border-radius:50%;border:2px solid rgba(94,231,255,.7);box-shadow:0 0 0 6px rgba(61,160,255,.12),0 0 40px rgba(61,160,255,.6),0 0 90px rgba(61,160,255,.25);display:block;margin:0 auto 22px}
+.nm{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:clamp(38px,11vw,60px);line-height:1.05;font-weight:700;letter-spacing:-.02em;
+  background:linear-gradient(180deg,#fff 20%,#9fc6ff 60%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 18px rgba(61,160,255,.45))}
+.live{display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 10px;border-radius:999px;font:500 13px "JetBrains Mono",monospace;color:var(--live);
+  background:rgba(53,240,138,.1);border:1px solid rgba(53,240,138,.45);box-shadow:0 0 18px rgba(53,240,138,.35)}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 10px var(--live);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,240,138,.8)}70%{box-shadow:0 0 0 10px rgba(53,240,138,0)}100%{box-shadow:0 0 0 0 rgba(53,240,138,0)}}
+.role{font:500 15px "JetBrains Mono",monospace;color:var(--cy);margin:14px 0 0}
+.role::after{content:"_";animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(140,185,255,.22);border-radius:20px;
+  -webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:0 8px 32px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)}
+.about{padding:18px 20px;margin:26px 0;color:var(--mute)}
+.about b{display:block;color:var(--tx);font-size:20px;margin-bottom:4px}
 .about p{margin:0}
-#links{display:grid;gap:20px}
-.link{display:block;text-decoration:none;color:var(--ink);border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);padding:18px 20px;background:var(--b);transition:transform .12s,box-shadow .12s}
-.link:nth-child(4n+1){background:var(--p)}
-.link:nth-child(4n+2){background:var(--b)}
-.link:nth-child(4n+3){background:var(--g)}
-.link:nth-child(4n){background:#fff}
-.link .n{display:block;font:400 clamp(20px,5.5vw,26px)/1.2 "Archivo Black",sans-serif}
-.link .d{display:block;margin-top:2px;font-weight:700;opacity:.8}
-.link:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
-.link:active{transform:translate(5px,5px);box-shadow:2px 2px 0 var(--ink)}
-:focus-visible{outline:4px solid var(--ink);outline-offset:4px}
-footer{margin-top:44px;font-weight:700}
-@media (prefers-reduced-motion:reduce){.link{transition:none}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{padding:14px 10px;text-align:center}
+.stat b{display:block;font-size:clamp(18px,5.5vw,26px);line-height:1.1;color:#fff;text-shadow:0 0 16px rgba(61,160,255,.8)}
+.stat span{display:block;margin-top:4px;font-size:13px;color:var(--mute);line-height:1.3}
+h2{font-size:clamp(22px,6vw,28px);margin:40px 0 14px;letter-spacing:-.01em}
+#links{display:grid;gap:16px}
+.card{--c:var(--blue);padding:18px 18px 16px;position:relative;border-color:color-mix(in srgb,var(--c) 45%,transparent)}
+.card:hover{box-shadow:0 8px 32px rgba(0,0,0,.45),0 0 28px color-mix(in srgb,var(--c) 40%,transparent),inset 0 1px 0 rgba(255,255,255,.2)}
+.card .n{font-size:21px;font-weight:700;line-height:1.2}
+.card .d{color:var(--mute);margin:4px 0 14px;font-size:15.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;text-decoration:none;color:#fff;font-weight:700;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--c) 85%,#fff 0%),color-mix(in srgb,var(--c) 40%,#000));
+  border:1px solid rgba(255,255,255,.4);box-shadow:0 0 22px color-mix(in srgb,var(--c) 55%,transparent),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 34px color-mix(in srgb,var(--c) 80%,transparent),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn:active{transform:scale(.97)}
+.svc{display:grid;gap:12px}
+.svc div{padding:14px 18px}
+.svc b{display:block;font-size:18px}
+.svc span{color:var(--mute);font-size:15.5px}
+:focus-visible{outline:3px solid var(--cy);outline-offset:3px}
+footer{margin-top:44px;text-align:center;color:var(--mute);font-size:14px}
+@media (max-width:480px){.stats{grid-template-columns:1fr}.stat{display:flex;align-items:baseline;gap:10px;text-align:left;padding:12px 16px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <span class="badge" id="title"></span>
-  <h1>Eren<br>Labs</h1>
-  <div class="about"><b id="name"></b><p id="about"></p></div>
+  <header class="top">
+    <img class="logo" src="logo.jpg" alt="Eren Empire logo" width="150" height="150">
+    <div class="nm"><h1 id="brand">Eren Empire</h1><span class="live"><i></i>LIVE</span></div>
+    <p class="role" id="title"></p>
+  </header>
+  <div class="about glass"><b id="name"></b><p id="about"></p></div>
+  <div class="stats" id="stats"></div>
+  <h2>Projects</h2>
   <nav id="links" aria-label="Links">
-    <noscript><a class="link" href="https://t.me/erenygr58"><span class="n">Message me on Telegram</span></a></noscript>
+    <noscript><a class="btn" href="https://t.me/erenygr58">Message Me</a></noscript>
   </nav>
-  <footer>© 2026 Eren Labs</footer>
+  <h2>What I build</h2>
+  <div class="svc" id="svc"></div>
+  <footer>© 2026 Eren Empire</footer>
 </main>
 <script src="links.js"></script>
 <script>
-document.getElementById("title").textContent = SITE.title;
-document.getElementById("name").textContent = "Hi, I’m " + SITE.name;
-document.getElementById("about").textContent = SITE.about;
-var box = document.getElementById("links");
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
+document.getElementById("brand").textContent=SITE.brand;
+document.getElementById("title").textContent=SITE.title;
+document.getElementById("name").textContent="Hi, I’m "+SITE.name;
+document.getElementById("about").textContent=SITE.about;
+STATS.forEach(function(i){var d=el("div","stat glass");d.appendChild(el("b","",i.n));d.appendChild(el("span","",i.l));document.getElementById("stats").appendChild(d)});
+SERVICES.forEach(function(i){var d=el("div","glass");d.appendChild(el("b","",i.name));d.appendChild(el("span","",i.desc));document.getElementById("svc").appendChild(d)});
 LINKS.forEach(function(l){
-  var a = document.createElement("a");
-  a.className = "link"; a.href = l.url; a.target = "_blank"; a.rel = "noopener";
-  if (l.color) a.style.background = l.color;
-  var n = document.createElement("span"); n.className = "n"; n.textContent = l.name; a.appendChild(n);
-  if (l.desc) { var d = document.createElement("span"); d.className = "d"; d.textContent = l.desc; a.appendChild(d); }
-  box.appendChild(a);
+  var c=el("div","card glass"); if(l.color)c.style.setProperty("--c",l.color);
+  c.appendChild(el("div","n",l.name)); if(l.desc)c.appendChild(el("div","d",l.desc));
+  var a=el("a","btn",l.button||"Open"); a.href=l.url; a.target="_blank"; a.rel="noopener";
+  c.appendChild(a); document.getElementById("links").appendChild(c);
 });
 </script>
 </body>
