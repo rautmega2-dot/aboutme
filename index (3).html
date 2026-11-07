@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eren – Web &amp; Telegram Bot Developer | Eren Labs</title>
+<meta name="description" content="Eren Labs is the portfolio of Eren, a web developer and Telegram bot developer. Browse projects and contact Eren on Telegram.">
+<link rel="canonical" href="https://erenlabs.xyz/">
+<meta property="og:title" content="Eren – Web &amp; Telegram Bot Developer | Eren Labs">
+<meta property="og:url" content="https://erenlabs.xyz/">
+<meta name="theme-color" content="#FFE14D">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFE14D;--p:#FF5CA8;--b:#5B8CFF;--g:#3DDC97;--ink:#000;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:500 18px/1.5 "Space Grotesk",system-ui,sans-serif;
+  background:var(--y) radial-gradient(rgba(0,0,0,.18) 1.5px,transparent 1.5px) 0 0/22px 22px}
+.wrap{max-width:620px;margin:0 auto;padding:48px 20px 40px}
+.badge{display:inline-block;background:var(--ink);color:var(--y);font-weight:700;padding:6px 14px;border:3px solid var(--ink);transform:rotate(-3deg);margin-bottom:18px}
+h1{font:400 clamp(64px,20vw,128px)/.88 "Archivo Black",sans-serif;margin:0 0 20px;letter-spacing:-.02em;text-shadow:5px 5px 0 var(--p)}
+.about{background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:16px 18px;margin:0 0 36px}
+.about b{display:block;font:400 22px/1.2 "Archivo Black",sans-serif;margin-bottom:6px}
+.about p{margin:0}
+#links{display:grid;gap:20px}
+.link{display:block;text-decoration:none;color:var(--ink);border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);padding:18px 20px;background:var(--b);transition:transform .12s,box-shadow .12s}
+.link:nth-child(4n+1){background:var(--p)}
+.link:nth-child(4n+2){background:var(--b)}
+.link:nth-child(4n+3){background:var(--g)}
+.link:nth-child(4n){background:#fff}
+.link .n{display:block;font:400 clamp(20px,5.5vw,26px)/1.2 "Archivo Black",sans-serif}
+.link .d{display:block;margin-top:2px;font-weight:700;opacity:.8}
+.link:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.link:active{transform:translate(5px,5px);box-shadow:2px 2px 0 var(--ink)}
+:focus-visible{outline:4px solid var(--ink);outline-offset:4px}
+footer{margin-top:44px;font-weight:700}
+@media (prefers-reduced-motion:reduce){.link{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <span class="badge" id="title"></span>
+  <h1>Eren<br>Labs</h1>
+  <div class="about"><b id="name"></b><p id="about"></p></div>
+  <nav id="links" aria-label="Links">
+    <noscript><a class="link" href="https://t.me/erenygr58"><span class="n">Telegram pe message karo</span></a></noscript>
+  </nav>
+  <footer>© 2026 Eren Labs</footer>
+</main>
+<script src="links.js"></script>
+<script>
+document.getElementById("title").textContent = SITE.title;
+document.getElementById("name").textContent = "Hi, main " + SITE.name + " hu";
+document.getElementById("about").textContent = SITE.about;
+var box = document.getElementById("links");
+LINKS.forEach(function(l){
+  var a = document.createElement("a");
+  a.className = "link"; a.href = l.url; a.target = "_blank"; a.rel = "noopener";
+  var n = document.createElement("span"); n.className = "n"; n.textContent = l.name; a.appendChild(n);
+  if (l.desc) { var d = document.createElement("span"); d.className = "d"; d.textContent = l.desc; a.appendChild(d); }
+  box.appendChild(a);
+});
+</script>
+</body>
+</html>
