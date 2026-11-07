@@ -11,5 +11,6 @@ const SITE = {
 // { name: "Button name", url: "https://link", desc: "one line (optional)" },
 const LINKS = [
   { name: "Message me on Telegram", url: "https://t.me/erenygr58", desc: "@erenygr58" },
-  { name: "Prime Store", url: "https://primestore.erenlabs.xyz", desc: "Get Telegram and WhatsApp accounts, plus social media views and likes. Includes an API you can use on your own website." },
+  { name: "Prime Store Web", url: "https://primestore.erenlabs.xyz", desc: "Get Telegram and WhatsApp accounts, plus social media views and likes." },
+  { name: "Prime Store Bot", url: "https://t.me/PStore1Bot", desc: "Get Telegram and WhatsApp accounts, plus social media views and likes. Includes an API you can use on your own website." },
 ];
