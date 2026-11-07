@@ -1,16 +1,15 @@
-// ===== YAHAN SIRF EDIT KARO =====
+// ===== EDIT ONLY THIS FILE =====
 
-// Tumhari profile
+// Your profile
 const SITE = {
   name: "Eren",
   title: "Web & Telegram Bot Developer",
-  about: "Main websites, web apps aur Telegram bots banata hu. Neeche mere saare projects aur contact hain."
+  about: "I build websites, web apps and Telegram bots. Find my projects and contact details below."
 };
 
-// Naya button jodne ke liye ek line copy karke niche paste karo:
-// { name: "Button ka naam", url: "https://link", desc: "ek line (optional)" },
+// To add a new button, copy one line below and paste it at the end of the list:
+// { name: "Button name", url: "https://link", desc: "one line (optional)" },
 const LINKS = [
-  { name: "Telegram pe message karo", url: "https://t.me/erenygr58", desc: "@erenygr58" },
-  { name: "Prime Store", url: "https://primestore.erenlabs.xyz", desc: "primestore.erenlabs.xyz" },
-  // { name: "Mera Bot", url: "https://t.me/mybot", desc: "Telegram bot" },
+  { name: "Message me on Telegram", url: "https://t.me/erenygr58", desc: "@erenygr58" },
+  { name: "Prime Store", url: "https://primestore.erenlabs.xyz", desc: "Get Telegram and WhatsApp accounts, plus social media views and likes. Includes an API you can use on your own website." },
 ];
