@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Eren Empire – Web &amp; Telegram Bot Developer</title>
 <meta name="description" content="Eren Empire is the portfolio of Eren, a web developer and Telegram bot developer. Browse projects and contact Eren on Telegram.">
 <link rel="canonical" href="https://erenlabs.xyz/">
@@ -22,10 +22,12 @@
 <style>
 @property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
 :root{--bg:#04030c;--blue:#4d7cff;--cy:#22e4ff;--vio:#9b5cff;--pk:#ff3d9a;--or:#ffb43d;--tx:#e8f0ff;--mute:#9db0d3;--live:#35f08a;color-scheme:dark}
-*{box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
 html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;color:var(--tx);font:500 17px/1.55 "Space Grotesk",system-ui,sans-serif;background:var(--bg);overflow-x:hidden}
-::selection{background:var(--blue);color:#fff}
+body{margin:0;min-height:100vh;color:var(--tx);font:500 17px/1.55 "Space Grotesk",system-ui,sans-serif;background:var(--bg);overflow-x:hidden;
+  -webkit-user-select:none;user-select:none;touch-action:pan-y}
+img{-webkit-user-drag:none;user-drag:none}
+::selection{background:transparent;color:inherit}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--vio));border-radius:8px}::-webkit-scrollbar-track{background:#05070f}
 
 /* ---------- background (only transform/opacity animate = smooth, GPU only) ---------- */
@@ -80,7 +82,7 @@ body{margin:0;min-height:100vh;color:var(--tx);font:500 17px/1.55 "Space Grotesk
 h1{position:relative;margin:0;font-size:clamp(38px,11vw,60px);line-height:1.05;font-weight:700;letter-spacing:-.02em;
   background:linear-gradient(100deg,#fff 0%,#ffa6d6 20%,var(--pk) 38%,var(--vio) 56%,var(--cy) 76%,#fff 100%);background-size:250% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:shimmer 3.2s linear 2 both,blurIn 1s .35s cubic-bezier(.2,1,.3,1) both}
+  animation:shimmer 6s linear infinite,blurIn 1s .35s cubic-bezier(.2,1,.3,1) both}
 h1::before,h1::after{content:attr(data-t);position:absolute;inset:0;background:none;-webkit-text-fill-color:currentColor;opacity:0;pointer-events:none}
 h1::before{color:var(--cy);animation:gl1 6s steps(1) 3s infinite}
 h1::after{color:var(--pk);animation:gl2 6s steps(1) 3s infinite}
@@ -139,11 +141,12 @@ h2.in::after{transform:scaleX(1)}
 #links{display:grid;gap:18px}
 .card{--c:var(--blue);padding:18px 18px 16px;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 28%,#0b0b1e),#090a18 72%);border-color:color-mix(in srgb,var(--c) 55%,transparent);
   transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .18s ease-out,box-shadow .3s}
-.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;opacity:.5;transition:opacity .3s;
-  background:conic-gradient(from var(--ang),transparent 0 55%,var(--c) 85%,#fff 100%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
-.card:hover::before{opacity:1;animation:ang 3s linear infinite}   /* the border only spins while you hover = no constant repaint */
-@keyframes ang{to{--ang:360deg}}
+/* light that runs around every card, all the time (rotates on the GPU, so it stays smooth) */
+.card .ring{position:absolute;inset:-1px;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0;opacity:.9;transition:opacity .3s}
+.card .ring::before{content:"";position:absolute;left:-50%;top:50%;width:200%;aspect-ratio:1;translate:0 -50%;background:conic-gradient(transparent 0 55%,var(--c) 85%,#fff 100%);animation:spin 4s linear infinite}
+.card .ring::after{content:"";position:absolute;inset:2px;border-radius:19px;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 28%,#0b0b1e),#090a18 72%)}
+.card:hover .ring{opacity:1}
+.card>*:not(.ring){position:relative;z-index:1}
 .card:hover{box-shadow:0 8px 32px rgba(0,0,0,.45),0 0 34px color-mix(in srgb,var(--c) 45%,transparent),inset 0 1px 0 rgba(255,255,255,.2)}
 .card .n{font-size:21px;font-weight:700;line-height:1.2}
 .card .d{color:var(--mute);margin:4px 0 14px;font-size:15.5px}
@@ -180,6 +183,20 @@ footer i{display:inline-block;width:7px;height:7px;margin-right:8px;border-radiu
 #up.on{opacity:1;translate:0 0;pointer-events:auto}
 #up:hover{transform:translateY(-3px)}
 
+.syms{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.syms b{position:absolute;font:500 22px/1 "JetBrains Mono",monospace;color:rgba(34,228,255,.26);animation:symf var(--t,12s) ease-in-out infinite;animation-delay:var(--d,0s)}
+.syms b:nth-child(2n){color:rgba(255,61,154,.26)}.syms b:nth-child(3n){color:rgba(255,180,61,.24)}
+@keyframes symf{0%,100%{transform:translate3d(0,0,0) rotate(-6deg)}50%{transform:translate3d(14px,-46px,0) rotate(8deg)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:8px 14px;border-radius:999px;font:500 14px "JetBrains Mono",monospace;color:#fff;border:1px solid color-mix(in srgb,var(--k) 60%,transparent);background:color-mix(in srgb,var(--k) 16%,#0a0a1c);transition:transform .2s,box-shadow .2s}
+.chips span:hover{transform:translateY(-4px) rotate(-2deg);box-shadow:0 0 18px color-mix(in srgb,var(--k) 70%,transparent)}
+.term{margin-top:22px;padding:0;overflow:hidden;background:#05060f;border-color:rgba(53,240,138,.4)}
+.term .tb{display:flex;align-items:center;gap:7px;padding:10px 14px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
+.term .tb i{width:11px;height:11px;border-radius:50%}.term .tb i:nth-child(1){background:#ff5f57}.term .tb i:nth-child(2){background:#febc2e}.term .tb i:nth-child(3){background:#28c840}
+.term .tb span{margin-left:8px;font:500 12px "JetBrains Mono",monospace;color:var(--mute)}
+.term pre{margin:0;padding:14px 16px 16px;font:500 13.5px/1.75 "JetBrains Mono",monospace;color:#c9d6ff;white-space:pre-wrap;word-break:break-word;min-height:12.5em}
+.term pre::after{content:"▋";color:var(--live);animation:blink 1s steps(1) infinite}
+.term .cmd{color:#fff}.term .cmd::before{content:"$ ";color:var(--live)}.term .k{color:var(--cy)}.term .ok{color:var(--live)}.term .o{color:var(--or)}
 .sp{position:fixed;z-index:80;width:8px;height:8px;border-radius:50%;pointer-events:none;animation:spark .75s ease-out forwards}
 @keyframes spark{to{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
 
@@ -198,6 +215,10 @@ footer i{display:inline-block;width:7px;height:7px;margin-right:8px;border-radiu
 <body>
 <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i></div>
 <div class="grid" aria-hidden="true"></div>
+<div class="syms" aria-hidden="true">
+  <b style="left:7%;top:16%;--t:12s;--d:-2s">&lt;/&gt;</b><b style="left:84%;top:12%;--t:15s;--d:-6s">{ }</b><b style="left:14%;top:58%;--t:11s;--d:-4s">;</b>
+  <b style="left:88%;top:52%;--t:14s;--d:-8s">#!/bin</b><b style="left:46%;top:88%;--t:13s;--d:-1s">=&gt;</b><b style="left:70%;top:76%;--t:16s;--d:-5s">0x1F</b><b style="left:30%;top:30%;--t:10s;--d:-7s">( )</b>
+</div>
 <canvas id="net" aria-hidden="true"></canvas>
 <div class="cur" id="cur" aria-hidden="true"></div>
 <div class="bar" id="bar" aria-hidden="true"></div>
@@ -225,6 +246,12 @@ footer i{display:inline-block;width:7px;height:7px;margin-right:8px;border-radiu
   </nav>
   <h2 class="rv">What I build</h2>
   <div class="svc" id="svc"></div>
+  <h2 class="rv">Stack</h2>
+  <div class="chips rv" id="chips"></div>
+  <div class="term glass rv" id="term" aria-hidden="true">
+    <div class="tb"><i></i><i></i><i></i><span id="tbt">eren@empire: ~</span></div>
+    <pre id="tp"></pre>
+  </div>
   <footer class="rv"><i></i>© 2026 Eren Empire</footer>
 </main>
 <button id="up" aria-label="Back to top">↑</button>
@@ -273,15 +300,38 @@ if (typeof SERVICES !== "undefined") {
 
 var PAL = ["#22e4ff", "#ff3d9a", "#9b5cff", "#ffb43d", "#35f08a"];   /* used when a link has no colour in links.js */
 LINKS.forEach(function(l, k){
-  var c = el("div", "card glass rv"); c.style.setProperty("--d", (k % 3) * 100 + "ms"); c.style.setProperty("--c", l.color || PAL[k % PAL.length]);
+  var c = el("div", "card glass rv"); c.style.setProperty("--d", (k % 3) * 100 + "ms"); c.style.setProperty("--c", l.color || PAL[k % PAL.length]); c.appendChild(el("i", "ring"));
   c.appendChild(el("div", "n", l.name)); if (l.desc) c.appendChild(el("div", "d", l.desc));
   var a = el("a", "btn", l.button || "Open"); a.href = l.url; a.target = "_blank"; a.rel = "noopener";
   a.appendChild(el("span", "arr", "→")); c.appendChild(a); $("links").appendChild(c);
 });
 
+/* ---- stack chips (add  var STACK=[...]  in links.js to change them) ---- */
+var STK = (typeof STACK !== "undefined" && STACK.length) ? STACK : ["Python", "Telegram Bot API", "MongoDB", "REST APIs", "HTML / CSS / JS"];
+STK.forEach(function(t, k){ var c = el("span", "", t); c.style.setProperty("--k", PAL[k % PAL.length]); $("chips").appendChild(c); });
+
+/* ---- terminal that types itself when you reach it ---- */
+var termDone = false;
+function runTerm(){
+  if (termDone) return; termDone = true;
+  var pre = $("tp"), slug = function(x){ return String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); };
+  var svc = (typeof SERVICES !== "undefined" && SERVICES.length) ? SERVICES.map(function(x){ return slug(x.name) + "/"; }).join("  ") : "bots/  websites/  apis/";
+  var L = [["whoami", "cmd"], [String(SITE.name).toLowerCase() + " · " + String(SITE.title).toLowerCase(), "k"], ["ls services/", "cmd"], [svc, "o"],
+           ["./status --live", "cmd"], ["● online · 24/7 · taking new projects", "ok"], ["contact --telegram", "cmd"], ["→ t.me/erenygr58", "k"]];
+  var i = 0;
+  function line(){
+    if (i >= L.length) return;
+    var row = L[i++], d = el("div", row[1]); pre.appendChild(d);
+    if (row[1] !== "cmd" || reduce) { d.textContent = row[0]; setTimeout(line, reduce ? 0 : 380); return; }
+    var j = 0; (function ty(){ d.textContent = row[0].slice(0, ++j); if (j < row[0].length) setTimeout(ty, 42); else setTimeout(line, 320); })();
+  }
+  line();
+}
+try { console.log("%c Eren Empire ", "background:#ff3d9a;color:#fff;font:700 14px monospace;padding:4px 8px;border-radius:4px", "built by Eren · t.me/erenygr58"); } catch (e) {}
+
 /* ---- scroll reveal ---- */
 var rvs = document.querySelectorAll(".rv");
-function reveal(n){ n.classList.add("in"); var b = n.querySelector && n.querySelector(".cnt"); if (b) countUp(b); }
+function reveal(n){ n.classList.add("in"); var b = n.querySelector && n.querySelector(".cnt"); if (b) countUp(b); if (n.id === "term") runTerm(); }
 if ("IntersectionObserver" in window && !reduce) {
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); }, {threshold: .1});
   rvs.forEach(function(n){ io.observe(n); });
@@ -328,6 +378,15 @@ document.addEventListener("click", function(e){
     d.style.left = e.clientX + "px"; d.style.top = e.clientY + "px"; d.style.background = cols[i % cols.length];
     d.style.setProperty("--x", Math.cos(a) * dist + "px"); d.style.setProperty("--y", Math.sin(a) * dist + "px"); document.body.appendChild(d); setTimeout(function(x){ x.remove(); }, 800, d);
   }
+});
+
+/* ---- lock: no zoom, no copy / select / long-press menu ---- */
+["copy", "cut", "contextmenu", "selectstart", "dragstart"].forEach(function(t){ document.addEventListener(t, function(e){ e.preventDefault(); }); });
+["gesturestart", "gesturechange", "gestureend"].forEach(function(t){ document.addEventListener(t, function(e){ e.preventDefault(); }); });
+document.addEventListener("touchmove", function(e){ if (e.touches.length > 1) e.preventDefault(); }, {passive: false});
+document.addEventListener("wheel", function(e){ if (e.ctrlKey) e.preventDefault(); }, {passive: false});
+document.addEventListener("keydown", function(e){
+  if ((e.ctrlKey || e.metaKey) && ["+", "-", "=", "0", "c", "x", "a"].indexOf(String(e.key).toLowerCase()) > -1) e.preventDefault();
 });
 
 /* ---- scroll: progress bar, back-to-top, logo ---- */
